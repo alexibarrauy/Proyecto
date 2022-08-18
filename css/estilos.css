@@ -1,0 +1,17 @@
+body{
+    font-family: 'Raleway', serif;
+}
+
+div.contenedor-contrasena {
+    text-align: center;
+}
+
+p.etiquetas {
+    margin-bottom: 1px;
+    font-size: 12px;
+}
+
+input#send {
+    background-color: blue;
+    color: white;
+}
