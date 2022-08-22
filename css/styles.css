@@ -5,6 +5,10 @@
   font-family: 'Raleway', serif !important;
 }
 
+.productos{
+  text-align: center;
+}
+
 .jumbotron .display-4 {
   font-weight: bold;
 }
