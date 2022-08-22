@@ -1,4 +1,4 @@
-function Mostrarlista(lis) {
+function Mostrarlista(lis) { //Esto lo que hace es escribir en un string vacio lo que se pondra en el div que tenemos en el html
     let cadena = "";
     for (let categorias of lis){
         cadena += `
@@ -19,7 +19,7 @@ function Mostrarlista(lis) {
     document.getElementById('cat-list-container-productos').innerHTML = cadena
 }  
 
-document.addEventListener('DOMContentLoaded', function(e){
+document.addEventListener('DOMContentLoaded', function(e){ // Se obtiene la informacion que esta en ese link se crea el array currentCategoriesArray y se sobreescribe con el resultado y se efectua la funcion MostrarLista.
     getJSONData("https://japceibal.github.io/emercado-api/cats_products/101.json").then(function(resultObj){
         if (resultObj.status === "ok"){
             currentCategoriesArray = resultObj.data.products
