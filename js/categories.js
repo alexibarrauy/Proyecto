@@ -37,6 +37,13 @@ function sortCategories(criteria, array){
 
 function setCatID(id) {
     localStorage.setItem("catID", id);
+    if (localStorage.getItem("catID") === "101"){
+        localStorage.setItem("NombreCat", "autos")
+    }if (localStorage.getItem("catID") === "102"){
+        localStorage.setItem("NombreCat", "juguetes")
+    }if (localStorage.getItem("catID") === "103"){
+        localStorage.setItem("NombreCat", "muebles")
+    }
     window.location = "products.html"
 }
 

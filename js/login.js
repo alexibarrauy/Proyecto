@@ -9,3 +9,11 @@ document.getElementById("send").addEventListener("click", function(e){
     }
     else{  window.location.href = "index2.html"}
 }); 
+
+document.addEventListener("DOMContentLoaded", function(){
+    document.getElementById("send").addEventListener("click", function() {
+        localStorage.setItem("usuario", email.value);
+
+    })
+    
+})
