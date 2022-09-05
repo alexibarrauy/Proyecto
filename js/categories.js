@@ -6,6 +6,13 @@ let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
 
+let UsuarioHTML = document.getElementById('NombreUsuario')// Aca se carga el texto de arriba segun que categoria visitemos.
+    let contenido2 = `
+        <p> ${localStorage.getItem('usuario')} </p>
+        `
+    UsuarioHTML.innerHTML = contenido2
+
+
 function sortCategories(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
@@ -35,7 +42,7 @@ function sortCategories(criteria, array){
     return result;
 }
 
-function setCatID(id) {
+function setCatID(id) { //setea el CatId
     localStorage.setItem("catID", id);
     if (localStorage.getItem("catID") === "101"){
         localStorage.setItem("NombreCat", "autos")
@@ -47,7 +54,7 @@ function setCatID(id) {
     window.location = "products.html"
 }
 
-function showCategoriesList(){
+function showCategoriesList(){//Funcion que escribe las categorias en el html
 
     let htmlContentToAppend = "";
     for(let i = 0; i < currentCategoriesArray.length; i++){
