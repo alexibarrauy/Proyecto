@@ -1,4 +1,4 @@
-const ORDER_ASC_BY_NAME = "AZ";
+const ORDER_ASC_BY_NAME = "AZ";//estos 3 representan opciones para ordenar
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COUNT = "Cant.";
 let currentCategoriesArray = [];
@@ -17,7 +17,7 @@ function Mostrarlista() { //Esto lo que hace es escribir en un string vacio lo q
     
     for(let i = 0; i < currentCategoriesArray.length; i++){
         let category = currentCategoriesArray[i];
-
+                // Se agrego esta linea para que cuando se defina un minimo o un maximo se aplica a la lista
             if (((minCount == undefined) || (minCount != undefined && parseInt(category.soldCount) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(category.soldCount) <= maxCount))){
 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function(e){ // Se obtiene la info
 
     document.getElementById("sortByCount").addEventListener("click", function(){
         sortAndShowCategories(ORDER_BY_PROD_COUNT);
-    });
+    });                                             //Estas funciones leen cuando se hace click en los filtros, ordenar y limpiar.
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function(e){ // Se obtiene la info
     ProductosHTML.innerHTML = contenido
 
 
-function sortCategories(criteria, array){
+function sortCategories(criteria, array){//Funcion para ordenar
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
     {
@@ -132,7 +132,7 @@ function sortCategories(criteria, array){
     return result;
 }
 
-function sortAndShowCategories(sortCriteria, categoriesArray){
+function sortAndShowCategories(sortCriteria, categoriesArray){//Funcion que muestra las categorias una vez ordenadas
     currentSortCriteria = sortCriteria;
 
     if(categoriesArray != undefined){
