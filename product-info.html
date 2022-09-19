@@ -10,6 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link" href="index2.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -31,17 +32,37 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <div class="nav-link" id="NombreUsuario"></div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="row">
+        <div class="infoproductos" id="Descripcion_producto">
+        </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="infoproductos" id="Comentarios_producto">
+        </div>
+      </div>
+      <div class="infoproductos">
+        <h2>Comentar</h2>
+        <p class="NoSeparacion">Tu opinión:</p>
+        <input type="text">
+        <p  class="NoSeparacion">Tu puntuación:</p>
+        <input list="estrellas" class="NoSeparacion">
+        <datalist id="estrellas">
+          <option value="1"></option>
+          <option value="2"></option>
+          <option value="3"></option>
+          <option value="4"></option>
+          <option value="5"></option>
+        </datalist>
+        <br>
+        <input type="submit" name="Enviar" class="Separacion">
+      </div>
   </main>
   <footer class="text-muted">
     <div class="container">

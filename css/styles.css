@@ -192,3 +192,9 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.infoproductos {
+  padding-left: 10%;
+  padding-right: 10%;
+  font-family: 'Raleway', serif;
+}

@@ -12,17 +12,21 @@ let UsuarioHTML = document.getElementById('NombreUsuario')// Aca se carga el tex
         `
         UsuarioHTML.innerHTML = contenido2
 
+function setItemId(id) { //setea el id del item
+    localStorage.setItem("ItemId", id);
+        window.location = "product-info.html"
+    } 
 function Mostrarlista() { //Esto lo que hace es escribir en un string vacio lo que se pondra en el div que tenemos en el html
     let cadena = "";
     
     for(let i = 0; i < currentCategoriesArray.length; i++){
         let category = currentCategoriesArray[i];
                 // Se agrego esta linea para que cuando se defina un minimo o un maximo se aplica a la lista
-            if (((minCount == undefined) || (minCount != undefined && parseInt(category.soldCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.soldCount) <= maxCount))){
+            if (((minCount == undefined) || (minCount != undefined && parseInt(category.cost) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))){
 
             cadena += `
-            <div class="row">
+            <div class="row rodeado" onclick="setItemId(${category.id})">
                 <div class="col-3">
                     <img src="${category.image}" alt="${category.description}" class="img-thumbnail">
                 </div>
@@ -35,6 +39,8 @@ function Mostrarlista() { //Esto lo que hace es escribir en un string vacio lo q
                 </div>
             </div>
         `
+        console.log(category)
+        console.log(currentCategoriesArray)
     }
     document.getElementById('cat-list-container-productos').innerHTML = cadena
     
