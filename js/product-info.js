@@ -46,24 +46,27 @@ document.addEventListener('DOMContentLoaded', ()=>{//carga los comentarios en ot
     fetch(UrlComent + localStorage.getItem('ItemId') + ".json")
     .then(respuesta => respuesta.json())
     .then(datos => {
-        let contenidoamostrar = ""
-        contenidoamostrar +=`
-        <h2>Comentarios</h2>
+        let ContenidoComent = "";
+        for (i=0; i < datos.length; i++){
+        let Estrellas = "";
+        for (j=0; j < 5; j++){
+            if (j < datos[i].score){
+                Estrellas += `<span class="fa fa-star checked"></span>`
+            } else {
+                Estrellas += `<span class="fa fa-star "></span>`
+            }
+        }
+        ContenidoComent +=`
         <div class="comentarios-borde">
-            <p><b>${datos[0].user}</b> - ${datos[0].dateTime} - ${datos[0].score} estrellas</p> 
-            <p>${datos[0].description}</p>
+            <p><b>${datos[i].user}</b> - ${datos[i].dateTime} - ${Estrellas} </p> 
+            <p>${datos[i].description}</p>
 
         </div>
-        <div class="comentarios-borde">
-            <p><b>${datos[1].user}</b> - ${datos[1].dateTime} - ${datos[1].score} estrellas</p> 
-            <p>${datos[1].description}</p>
-        </div>
-        <div class="comentarios-borde">
-            <p><b>${datos[2].user}</b> - ${datos[2].dateTime} - ${datos[2].score} estrellas</p> 
-            <p>${datos[2].description}</p>
-        </div>
-            `
-        document.getElementById("Comentarios_producto").innerHTML = contenidoamostrar;
+        `
         
+        
+        }
+        document.getElementById("Comentarios_producto").innerHTML += ContenidoComent;
     })
+  
 })
