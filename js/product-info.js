@@ -7,14 +7,15 @@ let UsuarioHTML = document.getElementById('NombreUsuario')// Aca se carga el tex
 const Url = 'https://japceibal.github.io/emercado-api/products/' //products info
 const UrlComent = 'https://japceibal.github.io/emercado-api/products_comments/' // comentarios
 
-document.addEventListener('DOMContentLoaded', ()=>{//carga lo referente al producto en el primer div
+document.addEventListener('DOMContentLoaded', ()=>{//Carga Info producto e imagenes.
+    
     fetch(Url + localStorage.getItem('ItemId') + ".json")
     .then(respuesta => respuesta.json())
     .then(datos => {
         console.log(datos)
-        let ContenidoMostrar = ""
+        let DescripcionProdu = ""
 
-        ContenidoMostrar +=`
+        DescripcionProdu +=`
         <h1>${datos.name}</h1>
         <hr>
         <h4><b>Precio</b></h4>
@@ -25,17 +26,18 @@ document.addEventListener('DOMContentLoaded', ()=>{//carga lo referente al produ
         <p>${datos.category}</p>
         <h4><b>Cantidad de vendidos</b></h4>
         <p>${datos.soldCount}</p>
-        <h4><b>Imagenes ilustrativas</b></h4>
-        <div class="columna-info-produ">
-            <img src="${datos.images[0]}" class="imagen-produ">
-            <img src="${datos.images[1]}" class="imagen-produ">
-            <img src="${datos.images[2]}" class="imagen-produ">
-            <img src="${datos.images[3]}" class="imagen-produ">
-        </div>
         `       
-        console.log(ContenidoMostrar)
+        console.log(DescripcionProdu)
 
-        document.getElementById("Descripcion_producto").innerHTML = ContenidoMostrar;
+        document.getElementById("Descripcion_producto").innerHTML = DescripcionProdu;
+        let ImagenesProdu = "";
+        console.log(datos.images.length)
+        for (let i=0; i < datos.images.length; i++){
+            ImagenesProdu +=`
+            <img src="${datos.images[i]}" class="imagen-produ">`
+        }
+
+        document.getElementById("Imagenes_producto").innerHTML = ImagenesProdu;
 })
 
 })
@@ -45,7 +47,6 @@ document.addEventListener('DOMContentLoaded', ()=>{//carga los comentarios en ot
     .then(respuesta => respuesta.json())
     .then(datos => {
         let contenidoamostrar = ""
-        console.log(datos)
         contenidoamostrar +=`
         <h2>Comentarios</h2>
         <div class="comentarios-borde">

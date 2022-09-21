@@ -32,7 +32,7 @@ function Mostrarlista() { //Esto lo que hace es escribir en un string vacio lo q
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">${category.name} - USD ${category.cost}</h4>
+                        <h4 class="mb-1">${category.name} - ${category.currency} ${category.cost}</h4>
                         <small class="text-muted">${category.soldCount} vendidos</small>
                     </div>
                     <p class="mb-1">${category.description}</p>
