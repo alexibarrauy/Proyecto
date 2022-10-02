@@ -198,3 +198,22 @@ a.custom-card:hover {
   padding-right: 10%;
   font-family: 'Raleway', serif;
 }
+
+.contenedor-rela {
+  display: inline block;
+  width: 35%;
+  height: width*0.35;
+  border: gray;
+}
+
+.prueba {
+  width: 40%;
+  height: 200px;
+  display: inline-flex !important;
+}
+
+.tamaño_img {
+  width: 320px;
+  height: 200px;
+  border: 2px black solid;
+}
