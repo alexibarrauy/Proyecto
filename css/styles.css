@@ -217,3 +217,7 @@ a.custom-card:hover {
   height: 200px;
   border: 2px black solid;
 }
+
+.image{
+  height: 20px;
+}
