@@ -221,3 +221,7 @@ a.custom-card:hover {
 .image{
   height: 20px;
 }
+
+.paddleft {
+  padding-left: 7%;
+}
