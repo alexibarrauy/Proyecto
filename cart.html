@@ -36,6 +36,7 @@
     </div>
   </nav>
   <main>
+    <div id="cuerpo">
     <h1 class="text-center">Carrito de compras</h1>
     <h2>Artículos a comprar</h2>
     <div class="container">
@@ -51,6 +52,71 @@
         </tr>
       </table>
     </div>
+    <div><!--TIPO ENVIO-->
+      <h2>Tipo de envío</h2>
+      <input type="radio" name="tipo" id="premium">
+      <label for="tipo">Premium de 2 a 5 días (15%)</label>
+      <br>
+      <input type="radio" name="tipo" id="express">
+      <label for="tipo">Express de 5 a 8 días (7%)</label>
+      <br>
+      <input type="radio" name="tipo" id="standard" checked>
+      <label for="tipo">Standard de 12 a 15 días (5%)</label>
+    </div>
+
+    <div><!--DIRECCION ENVIO-->
+      <h2>Dirección de envío</h2>
+      <label for="direccion">Calle</label>
+      <input type="text" name="direccion">
+      
+
+      <label for="direccion">Número</label>
+      <input type="text" name="direccion">
+
+      <br>
+
+      <label for="direccion">Esquina</label>
+      <input type="text" name="direccion">
+
+    </div>
+
+    <hr class="mb-4">
+
+    <div><!--COSTOS-->
+      <h2>Costos</h2>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Subtotal</h6>
+                <small class="text-muted">Precio unitario del producto por cantidad</small>
+              </div>
+              <span class="text-muted" id="productCostText">x</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Costo de envío</h6>
+                <small class="text-muted">Según tipo de envío</small>
+              </div>
+              <span class="text-muted" id="comissionText">x</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total ($)</span>
+              <strong id="totalCostText">x</strong>
+            </li>
+          </ul>
+    </div>
+
+    <div><!--FORMA DE PAGO-->
+      <h2>Forma de pago</h2>
+      <div class="col-sm-12">
+        <button type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
+          data-bs-target="#modalPago" id="terms-btn">Seleccionar</button>
+        <span id="terms-feedback-invalid" class="hide danger">Debe aceptar los términos</span>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" id="bot_regis">Registrarme</button>
+  </div>
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -62,6 +128,37 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+
+  <div class="modal fade" id="modalPago" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Forma de pago</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="radio" name="Pago" id="Credito">
+          <label for="Pago">Tarjeta de crédito</label>
+          <hr>
+          <label for="">Número de tarjeta</label>
+          <input type="text" id="TarjetNum">
+          <br>
+          <label for="">Código de seg.</label>
+          <input type="text" id="CodSeguridad">
+          <br>
+          <label for="">Vencimiento (MM/AA)</label>
+          <input type="text" id="Vencimiento">
+          <br>
+          <input type="radio" name="Pago" id="Transfer">
+          <label for="Pago">Transferencia bancaria</label>
+          <hr>
+          <label for="">Número de cuenta</label>
+          <input type="text" id="Trans">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

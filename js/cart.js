@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             </b>
         </tr>`
         document.getElementById("tabla_cart").innerHTML += InfoCart
+        document.getElementById("productCostText").innerHTML = Info.unitCost + " " + Info.currency 
         
         let cantidad = document.getElementById("cantidad")
         let subtotal = document.getElementById("subtotal")
@@ -28,12 +29,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
             console.log(preciofinal)
             subtotal.innerHTML = preciofinal + ` ` + Info.currency
         })
+        
          
         
 
 
     })
 })
+
+
 // el lado oscuro de la fuerza
 
 // .addEventListener("click", ()=>{

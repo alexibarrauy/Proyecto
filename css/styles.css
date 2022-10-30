@@ -221,3 +221,12 @@ a.custom-card:hover {
 .image{
   height: 20px;
 }
+
+#bot_regis{
+  width: 100%;
+}
+
+div#cuerpo{
+  padding-left: 10%;
+  padding-right: 10%;
+}
