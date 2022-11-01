@@ -35,3 +35,7 @@ let UsuarioHTML = document.getElementById('NombreUsuario')// Aca se carga el tex
 document.getElementById('cerrar_sesion').addEventListener('click', function(){
     localStorage.removeItem('usuario')
 })
+
+document.addEventListener("DOMContentLoaded", function(){
+    console.log("mivariablexd")    
+})

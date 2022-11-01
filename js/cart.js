@@ -1,3 +1,21 @@
+let UsuarioHTML = document.getElementById('NombreUsuario')// Aca se carga el texto de arriba segun que categoria visitemos.
+let contenido2 = `
+<div class="dropdown">
+<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    ${localStorage.getItem('usuario')}
+</button>
+<ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+    <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+    <li id="cerrar_sesion"><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+</ul>
+</div>
+    `
+UsuarioHTML.innerHTML = contenido2
+
+document.getElementById('cerrar_sesion').addEventListener('click', function(){
+localStorage.removeItem('usuario')
+}) 
 
 document.addEventListener("DOMContentLoaded", ()=>{
     fetch(CART_INFO_URL + "25801.json")
@@ -27,7 +45,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
             preciofinal = parseInt(cantidad.value)*parseInt(Info.unitCost)
             
             console.log(preciofinal)
+<<<<<<< HEAD
             subtotal.innerHTML = preciofinal + ` ` + Info.currency
+=======
+            subtotal.innerHTML = preciofinal + ` ` + Info.currency 
+>>>>>>> 9c2608e6e3481ef5905ff53cdad28e8f6818ab86
         })
         
          

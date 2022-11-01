@@ -222,6 +222,7 @@ a.custom-card:hover {
   height: 20px;
 }
 
+<<<<<<< HEAD
 #bot_regis{
   width: 100%;
 }
@@ -229,4 +230,8 @@ a.custom-card:hover {
 div#cuerpo{
   padding-left: 10%;
   padding-right: 10%;
+=======
+.paddleft {
+  padding-left: 7%;
+>>>>>>> 9c2608e6e3481ef5905ff53cdad28e8f6818ab86
 }
