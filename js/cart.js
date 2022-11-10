@@ -1,3 +1,24 @@
+let UsuarioHTML = document.getElementById('NombreUsuario')// Aca se carga el texto de arriba segun que categoria visitemos.
+let contenido2 = `
+<div class="dropdown">
+<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    ${localStorage.getItem('usuario')}
+</button>
+<ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+    <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+    <li id="cerrar_sesion"><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+</ul>
+</div>
+    `
+UsuarioHTML.innerHTML = contenido2
+
+document.getElementById('cerrar_sesion').addEventListener('click', function(){
+localStorage.removeItem('usuario')
+}) 
+
+
+
 document.addEventListener("DOMContentLoaded", function(){
     fetch(CART_INFO_URL + "25801.json")
     .then(respuesta => respuesta.json())
@@ -22,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function(){
         let subtotal2 = document.getElementById("costoUnitario")
         let total = document.getElementById("costoTotal")
         let cantidad = document.getElementById("cantidad")
-        let comision = 0.05
+        let comision = 0.0
         let Pcomision = document.getElementById("segunEnvio")    
         let preciofinal = parseInt(cantidad.value)*parseInt(Info.unitCost)
 
@@ -96,3 +117,28 @@ document.addEventListener("DOMContentLoaded", function(){
 //     console.log(preciofinal)
 // })
 
+let credito = document.getElementById("Credito")
+let numTarjeta = document.getElementById("TarjetNum")
+let codSeguridad = document.getElementById("CodSeguridad")
+let vencimiento = document.getElementById("Vencimiento")
+let cuentaNum = document.getElementById("Trans")
+let transfer = document.getElementById("Transfer")
+
+credito.addEventListener("click", ()=>{
+    cuentaNum.setAttribute("disabled", "")
+    cuentaNum.value = ""
+    numTarjeta.removeAttribute("disabled", "")
+    codSeguridad.removeAttribute("disabled", "")
+    vencimiento.removeAttribute("disabled", "")
+
+} )
+
+transfer.addEventListener("click", ()=>{
+    numTarjeta.setAttribute("disabled", "")
+    numTarjeta.value = ""
+    codSeguridad.setAttribute("disabled", "")
+    codSeguridad.value = ""
+    vencimiento.setAttribute("disabled", "")
+    vencimiento.value = ""
+    cuentaNum.removeAttribute("disabled", "")
+} )
