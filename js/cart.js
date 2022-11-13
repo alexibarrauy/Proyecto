@@ -84,9 +84,15 @@ document.addEventListener("DOMContentLoaded", function(){
             comision = 0.05;
             CambiarPrecios()
         });
+
+         
                 
     })
 });
+
+function Mostrarcompra(){
+
+}
 
 (() => { // validacion
     'use strict'
@@ -100,6 +106,10 @@ document.addEventListener("DOMContentLoaded", function(){
         if (!form.checkValidity()) {
           event.preventDefault()
           event.stopPropagation()
+          alert("Falta algún dato, intente de nuevo")
+        } else {
+            event.preventDefault()
+            alert("¡Has comprado con éxito!")
         }
   
         form.classList.add('was-validated')
@@ -124,21 +134,89 @@ let vencimiento = document.getElementById("Vencimiento")
 let cuentaNum = document.getElementById("Trans")
 let transfer = document.getElementById("Transfer")
 
-credito.addEventListener("click", ()=>{
+credito.addEventListener("click", ()=>{ // Lo que pasa al cliquear Tarjeta de credito
     cuentaNum.setAttribute("disabled", "")
     cuentaNum.value = ""
+    cuentaNum.classList.remove("is-valid")
+    cuentaNum.classList.remove("is-invalid")
+
     numTarjeta.removeAttribute("disabled", "")
+    
     codSeguridad.removeAttribute("disabled", "")
+
     vencimiento.removeAttribute("disabled", "")
 
 } )
 
-transfer.addEventListener("click", ()=>{
+transfer.addEventListener("click", ()=>{ //Lo que pasa al clickear Tranferencia
     numTarjeta.setAttribute("disabled", "")
     numTarjeta.value = ""
+    numTarjeta.classList.remove("is-valid")
+    numTarjeta.classList.remove("is-invalid")
+
     codSeguridad.setAttribute("disabled", "")
     codSeguridad.value = ""
+    codSeguridad.classList.remove("is-valid")
+    codSeguridad.classList.remove("is-invalid")
+
     vencimiento.setAttribute("disabled", "")
     vencimiento.value = ""
+    vencimiento.classList.remove("is-valid")
+    vencimiento.classList.remove("is-invalid")
+
     cuentaNum.removeAttribute("disabled", "")
 } )
+
+let Enviar = document.getElementById("enviar")
+let codigoerror = document.getElementById("terms-feedback-invalid")
+
+Enviar.addEventListener("click", ()=>{
+    if (credito.checked == true){
+        codigoerror.innerHTML = "Tarjeta de credito"
+    } else if (transfer.checked == true){
+        codigoerror.innerHTML = "Transferencia"                    
+    } else {
+        codigoerror.innerHTML = "No ha seleccionado"
+    }
+    
+})
+
+numTarjeta.addEventListener("keyup", ()=>{ //cada vez que escribo algo en el Numero de tarjeta verifica si esta vacio o no
+    if (credito.checked == true && numTarjeta.value == "") {
+        numTarjeta.classList.add("is-invalid")
+        numTarjeta.classList.remove("is-valid")
+    } else {
+        numTarjeta.classList.add("is-valid")
+        numTarjeta.classList.remove("is-invalid")
+    }
+})
+
+codSeguridad.addEventListener("keyup", ()=>{//cada vez que escribo algo en el Codigo de seguridad verifica si esta vacio o no
+    if (credito.checked == true && codSeguridad.value == "") {
+        codSeguridad.classList.add("is-invalid")
+        codSeguridad.classList.remove("is-valid")
+    } else {
+        codSeguridad.classList.add("is-valid")
+        codSeguridad.classList.remove("is-invalid")
+    }
+})
+
+vencimiento.addEventListener("keyup", ()=>{//cada vez que escribo algo en el vencimiento verifica si esta vacio o no
+    if (credito.checked == true && vencimiento.value == "") {
+        vencimiento.classList.add("is-invalid")
+        vencimiento.classList.remove("is-valid")
+    } else {
+        vencimiento.classList.add("is-valid")
+        vencimiento.classList.remove("is-invalid")
+    }
+})
+
+cuentaNum.addEventListener("keyup", ()=>{//cada vez que escribo algo el numero de cuenta verifica si esta vacio o no
+    if (transfer.checked == true && cuentaNum.value == "") {
+        cuentaNum.classList.add("is-invalid")
+        cuentaNum.classList.remove("is-valid")
+    } else {
+        cuentaNum.classList.add("is-valid")
+        cuentaNum.classList.remove("is-invalid")
+    }
+})

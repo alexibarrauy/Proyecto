@@ -129,12 +129,53 @@
         <div class="col-sm-12">
           <button type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
             data-bs-target="#modalPago" id="terms-btn">Seleccionar</button>
-          <span id="terms-feedback-invalid" class="hide danger">Debe aceptar los términos</span>
+          <span id="terms-feedback-invalid" class="hide danger"></span>
         </div>
       </div>
 
       <div class="col-12">
-        <button class="btn btn-primary" type="submit">Finalizar compra</button>
+        <button id="enviar" class="btn btn-primary" type="submit">Finalizar compra</button>
+      </div>
+
+      <div class="modal fade" id="modalPago" tabindex="-1" aria-hidden="true"> <!--MODAL-->
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5">Forma de pago</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input type="radio" name="Pago" id="Credito">
+              <label for="Pago">Tarjeta de crédito</label>
+              <hr>
+              <div class="row g-3 needs-validation">
+              <div class="col-md-8">
+                <label for="">Número de tarjeta</label>
+                <input class="form-control" type="number" id="TarjetNum" maxlength="8" required>
+              </div>
+              <br>
+              <div class="col-md-4">
+              <label for="">Código de seg.</label>
+              <input class="form-control" type="number" id="CodSeguridad" maxlength="3" required>
+              </div>
+              
+              <br>
+              <div class="col-md-8">
+              <label for="">Vencimiento (MM/AA)</label>
+              <input class="form-control" type="text" id="Vencimiento" maxlength="5 " required>
+              </div>
+              </div>
+              <br>
+              <input type="radio" name="Pago" id="Transfer">
+              <label for="Pago">Transferencia bancaria</label>
+              <hr>
+              <div class="col-md-8">
+              <label for="">Número de cuenta</label>
+              <input class="form-control" type="number" id="Trans" required>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </form>
     </main>
@@ -149,46 +190,7 @@
       </div>
     </footer>
 
-  <div class="modal fade" id="modalPago" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5">Forma de pago</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <input type="radio" name="Pago" id="Credito" checked>
-          <label for="Pago">Tarjeta de crédito</label>
-          <hr>
-          <div class="row g-3 needs-validation">
-          <div class="col-md-8">
-            <label for="">Número de tarjeta</label>
-            <input class="form-control" type="number" id="TarjetNum" maxlength="8">
-          </div>
-          <br>
-          <div class="col-md-4">
-          <label for="">Código de seg.</label>
-          <input class="form-control" type="number" id="CodSeguridad" maxlength="3">
-          </div>
-          
-          <br>
-          <div class="col-md-8">
-          <label for="">Vencimiento (MM/AA)</label>
-          <input class="form-control" type="text" id="Vencimiento" maxlength="5 ">
-          </div>
-          </div>
-          <br>
-          <input type="radio" name="Pago" id="Transfer">
-          <label for="Pago">Transferencia bancaria</label>
-          <hr>
-          <div class="col-md-8">
-          <label for="">Número de cuenta</label>
-          <input class="form-control" type="number" id="Trans" disabled>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <div id="spinner-wrapper">
     <div class="lds-ring">
