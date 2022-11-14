@@ -90,10 +90,6 @@ document.addEventListener("DOMContentLoaded", function(){
     })
 });
 
-function Mostrarcompra(){
-
-}
-
 (() => { // validacion
     'use strict'
   

@@ -1,5 +1,6 @@
 let contra = document.getElementById('contra');
 let email = document.getElementById('mail');
+let usuario = localStorage.getItem('usuario')
 
 
 document.getElementById("send").addEventListener("click", function(e){
@@ -7,13 +8,9 @@ document.getElementById("send").addEventListener("click", function(e){
         e.preventDefault();
         alert('Falta llenar un campo');
     }
-    else{  window.location.href = "index2.html"}
-}); 
-
-document.addEventListener("DOMContentLoaded", function(){
-    document.getElementById("send").addEventListener("click", function() {
-        localStorage.setItem("usuario", email.value);
-
-    })
     
-})
+    else{
+        localStorage.setItem("usuario", email.value);
+        window.location.href = "index2.html"
+    }
+}); 
